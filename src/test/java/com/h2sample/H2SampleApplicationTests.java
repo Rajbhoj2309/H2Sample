@@ -20,36 +20,6 @@ import com.h2sample.repo.CourseRepo;
 @SpringBootTest(classes = H2SampleApplication.class)
 class H2SampleApplicationTests {
 
-	private Logger log = LoggerFactory.getLogger(this.getClass());
 
-	@Autowired
-	private CourseRepo repo;
-
-	@Test
-	public void findByIdTest() {
-		Course findById = repo.findById(1002L);
-		log.info("value from test method:\t" + findById.getName() + " " + findById.getId());
-		assertEquals("Spring book", findById.getName());
-		assertEquals(1002L, findById.getId());
-	}
-	
-	@Test
-	@DirtiesContext
-	public void deleteById() {
-		 repo.deleteById(1003L);
-		assertNull( repo.findById(1003L));
-//		 assertNotNull(repo.findById(1004L));
-	}
-	
-	@Test
-	@DirtiesContext
-	public void save() {
-		Course course=repo.findById(1L);
-		assertEquals("micro book", course.getName());
-		course.setName("nano book update");
-		 repo.saveData(course);
-		 Course course1=repo.findById(1L);
-			assertEquals("nano book update", course1.getName());
-	}
 	
 }

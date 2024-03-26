@@ -26,9 +26,11 @@ public class H2SampleApplication implements CommandLineRunner{
 		Course course = repo.findById(1001L);
 		log.info("Course 1001 -> {}", course);
 		
-		repo.deleteById(1001L);
+//		repo.deleteById(1001L);
 		
 		repo.saveData(new Course("micro book"));
+		repo.playWithEntityManager();
+		repo.playWithEntityManager2();
 	}
 	
 
